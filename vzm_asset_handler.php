@@ -1,6 +1,6 @@
 <?php
 /*
-Change $from to point to your update file, see files.php for example
+Change $from to point to your update file, see update.php for example
 Change the 'vzm' prefix on the class name and the vzm_callout transient to your own
 Rename the file to match your class name
 */
