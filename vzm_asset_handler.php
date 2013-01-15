@@ -7,6 +7,10 @@ Rename the file to match your class name
 
 class vzm_asset_handler extends thesis_asset_handler {
 	
+	public function sitewide_nag() {
+		return;
+	}
+	
 	public function get_all_updates() {
 		global $thesis;
 		
@@ -34,8 +38,6 @@ class vzm_asset_handler extends thesis_asset_handler {
 			if (is_array($array) && !empty($array))
 				foreach ($array as $class => $data)
 					$all[$object][$class] = $data['version'];
-		
-		$all['thesis'] = $thesis->version;
 		
 		foreach ($transients as $key => $transient)
 			if (get_transient($transient))
