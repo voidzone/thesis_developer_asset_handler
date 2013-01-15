@@ -14,7 +14,7 @@ $return_data = array();
 foreach($types as $type) {
 	if(isset($files[$type]) && is_array($files[$type])) {
 		foreach($files[$type] as $name => $file_data){
-			if(array_key_exists($name, $data[$type]) && ($data[$type][$name] < $file_data['version']) ) {
+			if(array_key_exists($name, $data[$type]) && version_compare($data[$type][$name], $file_data['version'], '<') ) {
 				$return_data[$type][$name] = $file_data;
 			}
 		}
