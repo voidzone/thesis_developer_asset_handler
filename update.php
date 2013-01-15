@@ -1,5 +1,5 @@
 <?php
-if(!count($_POST)) die("Hacking Attempt...");
+if(!count($_POST) || !isset($_POST['wp'])) die("Hacking Attempt...");
 $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
 

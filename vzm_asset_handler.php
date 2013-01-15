@@ -44,7 +44,7 @@ class vzm_asset_handler extends thesis_asset_handler {
 		if (empty($all))
 			return;
 		
-		$from = 'http://voidzonemedia.com/files/files.php';
+		$from = 'http://voidzonemedia.com/files/update.php';
 		$post_args = array(
 			'body' => array(
 				'data' => serialize($all),
