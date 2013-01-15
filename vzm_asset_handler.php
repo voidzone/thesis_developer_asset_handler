@@ -1,26 +1,16 @@
 <?php
-//uncomment this block for testing purposes.  To force an update check uncomment the delete_transient on line 33
 /*
-$transients = array(
-			'skins' => 'thesis_skins_update',
-			'boxes' => 'thesis_boxes_update',
-			'packages' => 'thesis_packages_update',
-			'thesis' => 'thesis_core_update');
-foreach ($transients as $key => $transient) {
-	if ($var = get_transient($transient)) {
-		echo $key . "\n";
-		print_r($var);
-	}
-}
+Change $from to point to your update file, see files.php for example
+Change the 'vzm' prefix on the class name and the vzm_callout transient to your own
+Rename the file to match your class name
 */
 
-new vzm_asset_handler;
 class vzm_asset_handler extends thesis_asset_handler {
 	
 	public function get_all_updates() {
 		global $thesis;
 		
-		//delete_transient('vzm_callout');
+		//delete_transient('vzm_callout'); //uncommenting this line will force an update check, for testing purposes only
 		if (get_transient('vzm_callout'))
 			return;
 		
@@ -79,3 +69,4 @@ class vzm_asset_handler extends thesis_asset_handler {
 				set_transient("thesis_{$type}_update", $returned[$type], 60*60*24);
 	}
 }
+?>
