@@ -5,6 +5,9 @@ Change the 'vzm' prefix on the class name and the vzm_callout transient to your 
 Rename the file to match your class name
 */
 
+if(!class_exists('thesis_asset_handler'))
+	require_once( THESIS_ADMIN . '/filesystem.php');
+
 class vzm_asset_handler extends thesis_asset_handler {
 	
 	public function sitewide_nag() {
