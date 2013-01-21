@@ -7,14 +7,6 @@ Description: This is the description.
 Class: example_box
 */
 
-// This function dynamically loads the asset handler class if it's required.
-function __autoload($class_name) {
-	$filename = dirname(__FILE__) . '/' . strtolower($class_name) . '.php';
-	
-	if(file_exists($filename))
-		include_once($filename);
-}
-
 class example_box extends thesis_box {
     
 	public function translate() {
@@ -25,6 +17,10 @@ class example_box extends thesis_box {
 		global $vzm_ah;
 		if(is_admin()) {
 			if(!isset($vzm_ah)) { // Check if the Asset Handler has already been created once, no point in creating the same asset handler multiple times.
+				// Load the asset handler class if it hasn't been already.
+				if(!class_exists('vzm_asset_handler'))
+					require_once( dirname(__FILE__) . '/vzm_asset_handler.php');
+					
 				$vzm_ah = new vzm_asset_handler;
 			}
 			

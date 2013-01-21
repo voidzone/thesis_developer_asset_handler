@@ -5,13 +5,11 @@ Change the 'vzm' prefix on the class name and the vzm_callout transient to your 
 Rename the file to match your class name
 */
 
-if(!class_exists('thesis_asset_handler'))
-	require_once( THESIS_ADMIN . '/filesystem.php');
-
-class vzm_asset_handler extends thesis_asset_handler {
+class vzm_asset_handler {
 	
-	public function sitewide_nag() {
-		return;
+	public function __construct() {
+		if (is_dir(WP_CONTENT_DIR . '/thesis'))
+			add_action('admin_init', array($this, 'get_all_updates'), 100);
 	}
 	
 	public function get_all_updates() {
