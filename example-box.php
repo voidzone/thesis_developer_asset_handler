@@ -17,8 +17,7 @@ class example_box extends thesis_box {
 		global $vzm_ah;
 		if(is_admin()) {
 			if(!isset($vzm_ah)) { // Check if the Asset Handler has already been created once, no point in creating the same asset handler multiple times.
-				// Load the asset handler class if it hasn't been already.
-				if(!class_exists('vzm_asset_handler'))
+				if(!class_exists('vzm_asset_handler')) // Load the asset handler class if it hasn't been already.
 					require_once( dirname(__FILE__) . '/vzm_asset_handler.php');
 					
 				$vzm_ah = new vzm_asset_handler;
