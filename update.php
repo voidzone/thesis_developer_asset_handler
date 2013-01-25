@@ -1,4 +1,11 @@
 <?php
+/*
+Name: Voidzone Media Update Repository
+Author: Tim Milligan
+Version: 1.0
+Configuration:
+Replace the items in the $files array with arrays of your skins, boxes, and packages.
+*/
 if(!count($_POST) || !isset($_POST['wp'])) die("Hacking Attempt...");
 $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
