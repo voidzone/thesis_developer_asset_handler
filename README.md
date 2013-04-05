@@ -1,3 +1,3 @@
-# Update Thesis Objects
+# Thesis Developer Asset Handler
 
-This file system allows the dynamic updating of skins, boxes, and packages with files from a server you specify.
+This asset handler allows developers to push updates for skins, boxes, and packages with files from a server they've specified.
