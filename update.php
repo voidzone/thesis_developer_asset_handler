@@ -1,6 +1,6 @@
 <?php
 /*
-Name: Voidzone Media Update Repository
+Name: Thesis Developer Update Repository
 Author: Tim Milligan
 Version: 1.0
 Configuration:

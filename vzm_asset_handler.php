@@ -1,6 +1,6 @@
 <?php
 /*
-Name: Voidzone Media Asset Handler
+Name: Thesis Developer Asset Handler
 Author: Tim Milligan
 Version: 1.2
 Configuration:

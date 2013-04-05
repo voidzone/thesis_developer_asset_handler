@@ -1,9 +1,9 @@
 <?php
 /*
-Name: Example Box
+Name: Thesis Developer Asset Handler Example Box
 Author: Tim Milligan
 Version: 1.0
-Description: This is the description.
+Description: Example box showing how to implement the Thesis Developer Asset Handler
 Class: example_box
 */
 
