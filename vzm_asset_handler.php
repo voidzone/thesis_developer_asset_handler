@@ -34,7 +34,8 @@ class vzm_asset_handler {
 		$transients = array(
 			'skins' => 'thesis_skins_update',
 			'boxes' => 'thesis_boxes_update',
-			'packages' => 'thesis_packages_update'
+			'packages' => 'thesis_packages_update',
+			'thesis' => 'thesis_core_update'
 		);
 		
 		$all = array();
