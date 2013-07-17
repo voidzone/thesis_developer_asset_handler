@@ -2,7 +2,7 @@
 /*
 Name: Thesis Developer Update Repository
 Author: Tim Milligan
-Version: 1.0
+Version: 1.3
 Configuration:
 Replace the items in the $files array with arrays of your skins, boxes, and packages.
 */
@@ -11,7 +11,7 @@ $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
 
 $files = array();
-if(version_compare($data['thesis'], 2.1, '<') { // Thesis 2.0 assets
+if(version_compare($data['thesis'], '2.1', '<') { // Thesis 2.0 assets
 	$files = array(
 		'boxes' => array(
 			'ewpfi' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/ewpfi.zip'),
