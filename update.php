@@ -10,12 +10,23 @@ if(!count($_POST) || !isset($_POST['wp'])) die("Hacking Attempt...");
 $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
 
-$files = array(
-	'boxes' => array(
-		'ewpfi' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/ewpfi.zip'),
-		'vzm_copyright' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/vzm_copyright.zip')
-	)
-);
+$files = array();
+if(version_compare($data['thesis'], 2.1, '<') { // Thesis 2.0 assets
+	$files = array(
+		'boxes' => array(
+			'ewpfi' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/ewpfi.zip'),
+			'vzm_copyright' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/vzm_copyright.zip')
+		)
+	);
+} else { // Thesis 2.1 assets
+	$files = array(
+		'boxes' => array(
+			'ewpfi' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/ewpfi.zip'),
+			'vzm_copyright' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/vzm_copyright.zip')
+		)
+	);
+}
+
 $return_data = array();
 
 foreach($types as $type) {
