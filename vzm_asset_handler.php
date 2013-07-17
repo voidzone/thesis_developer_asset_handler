@@ -44,14 +44,14 @@ class vzm_asset_handler {
 				foreach ($array as $class => $data)
 					$all[$object][$class] = $data['version'];
 		
-		$all['thesis'] = $thesis->version;
-		
 		foreach ($transients as $key => $transient)
 			if (get_transient($transient))
 				unset($all[$key]);
 		
 		if (empty($all))
 			return;
+		
+		$all['thesis'] = $thesis->version;
 		
 		$from = 'http://voidzonemedia.com/files/update.php';
 		$post_args = array(
