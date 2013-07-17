@@ -16,6 +16,9 @@ if(version_compare($data['thesis'], '2.1', '<') { // Thesis 2.0 assets
 		'boxes' => array(
 			'ewpfi' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/ewpfi.zip'),
 			'vzm_copyright' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/vzm_copyright.zip')
+		),
+		'packages' => array(
+			'vzm_example_package' => array('version' => '1.0', 'url' => 'http://voidzonemedia.com/files/2_0/vzm_example_package.zip')
 		)
 	);
 } else { // Thesis 2.1 assets

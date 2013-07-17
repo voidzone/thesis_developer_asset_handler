@@ -4,7 +4,7 @@ Name: Thesis Developer Asset Handler
 Author: Tim Milligan
 Version: 1.3
 Configuration:
-Change $from (ln 54) to point to your update file, see update.php for example
+Change $from (ln 56) to point to your update file, see update.php for example
 Change the 'vzm' prefix on the class name (ln 12) and the vzm_callout transient (ln 22 & 23) to your own
 Rename the file to match your class name
 */
