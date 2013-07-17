@@ -11,7 +11,7 @@ $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
 
 $files = array();
-if(isset($data['thesis']) && version_compare($data['thesis'], '2.1', '>=') { // Thesis 2.1 assets
+if(isset($data['thesis']) && version_compare($data['thesis'], '2.1', '>=')) { // Thesis 2.1 assets
 	$files = array(
 		'boxes' => array(
 			'ewpfi' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/ewpfi.zip'),
