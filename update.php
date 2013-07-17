@@ -11,7 +11,14 @@ $data = unserialize(stripslashes($_POST['data']));
 $types = array('skins', 'boxes', 'packages');
 
 $files = array();
-if(version_compare($data['thesis'], '2.1', '<') { // Thesis 2.0 assets
+if(isset($data['thesis']) && version_compare($data['thesis'], '2.1', '>=') { // Thesis 2.1 assets
+	$files = array(
+		'boxes' => array(
+			'ewpfi' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/ewpfi.zip'),
+			'vzm_copyright' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/vzm_copyright.zip')
+		)
+	);
+} else { // Thesis 2.0 assets
 	$files = array(
 		'boxes' => array(
 			'ewpfi' => array('version' => '1.3', 'url' => 'http://voidzonemedia.com/files/2_0/ewpfi.zip'),
@@ -19,13 +26,6 @@ if(version_compare($data['thesis'], '2.1', '<') { // Thesis 2.0 assets
 		),
 		'packages' => array(
 			'vzm_example_package' => array('version' => '1.0', 'url' => 'http://voidzonemedia.com/files/2_0/vzm_example_package.zip')
-		)
-	);
-} else { // Thesis 2.1 assets
-	$files = array(
-		'boxes' => array(
-			'ewpfi' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/ewpfi.zip'),
-			'vzm_copyright' => array('version' => '2.1', 'url' => 'http://voidzonemedia.com/files/2_1/vzm_copyright.zip')
 		)
 	);
 }
