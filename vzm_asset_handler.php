@@ -5,7 +5,7 @@ Author: Tim Milligan
 Version: 1.3
 Configuration:
 Change $from (ln 56) to point to your update file, see update.php for example
-Change the 'vzm' prefix on the class name (ln 12) and the vzm_callout transient (ln 22 & 23) to your own
+Change the 'vzm' prefix on the class name (ln 12) and the vzm_callout transient (ln 22 & 23 & 84) to your own
 Rename the file to match your class name
 */
 
@@ -76,6 +76,13 @@ class vzm_asset_handler {
 		foreach ($returned as $type => $data) // will only return the data that we need to update
 			if (in_array("thesis_{$type}_update", $transients))
 				set_transient("thesis_{$type}_update", $returned[$type], 60*60*24);
+	}
+	
+	public function reset_transients() {
+		foreach (array('skins', 'boxes', 'packages') as $tr)
+			delete_transient("thesis_{$tr}_update");
+		delete_transient('vzm_callout');
+		wp_cache_flush();
 	}
 }
 ?>
