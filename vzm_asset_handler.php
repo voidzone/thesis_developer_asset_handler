@@ -2,7 +2,7 @@
 /*
 Name: Thesis Developer Asset Handler
 Author: Tim Milligan
-Version: 1.3
+Version: 1.4
 Configuration:
 Change $from (ln 56) to point to your update file, see update.php for example
 Change the 'vzm' prefix on the class name (ln 12) and the vzm_callout transient (ln 22 & 23 & 84) to your own
@@ -13,10 +13,11 @@ class vzm_asset_handler {
 	
 	public function __construct() {
 		if (is_dir(WP_CONTENT_DIR . '/thesis'))
-			add_action('admin_init', array($this, 'get_all_updates'), 100);
+			add_action('thesis_updates', array($this, 'get_updates'), 1);
+		add_action('upgrader_process_complete', array($this, 'reset_transients'));
 	}
 	
-	public function get_all_updates() {
+	public function get_updates() {
 		global $thesis;
 		
 		//delete_transient('vzm_callout'); //uncommenting this line will force an update check, for testing purposes only
