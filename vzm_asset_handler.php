@@ -2,14 +2,15 @@
 /*
 Name: Thesis Developer Asset Handler
 Author: Tim Milligan
-Version: 1.4
+Version: 1.4.1
 Configuration:
 Change $from (ln 56) to point to your update file, see update.php for example
-Change the 'vzm' prefix on the class name (ln 12) and the vzm_callout transient (ln 22 & 23 & 84) to your own
+Change the 'vzm' prefix on the class name (ln 12) and the CALLOUT_TRANSIENT (ln 13) to your own
 Rename the file to match your class name
 */
 
 class vzm_asset_handler {
+	const CALLOUT_TRANSIENT = 'vzm_callout';
 	
 	public function __construct() {
 		if (is_dir(WP_CONTENT_DIR . '/thesis'))
@@ -20,11 +21,11 @@ class vzm_asset_handler {
 	public function get_updates() {
 		global $thesis;
 		
-		//delete_transient('vzm_callout'); //uncommenting this line will force an update check, for testing purposes only
-		if (get_transient('vzm_callout'))
+		//delete_transient(self::CALLOUT_TRANSIENT); //uncommenting this line will force an update check, for testing purposes only
+		if (get_transient(self::CALLOUT_TRANSIENT))
 			return;
 		
-		set_transient('vzm_callout', time(), 60*60*24);
+		set_transient(self::CALLOUT_TRANSIENT, time(), 60*60*24);
 		
 		$objects = array(
 			'skins' => thesis_skins::get_items(),
@@ -82,7 +83,7 @@ class vzm_asset_handler {
 	public function reset_transients() {
 		foreach (array('skins', 'boxes', 'packages') as $tr)
 			delete_transient("thesis_{$tr}_update");
-		delete_transient('vzm_callout');
+		delete_transient(self::CALLOUT_TRANSIENT);
 		wp_cache_flush();
 	}
 }
